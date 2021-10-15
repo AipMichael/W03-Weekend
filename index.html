@@ -9,50 +9,50 @@
     <title>PokeApi</title>
   </head>
   <body class="main">
-    <main class="main-pokeside"></main>
-    <header>
-      <nav class="main-bar">
-        <div class="main-bar__logo">
-          <img
-            class="main-bar__picture"
-            src="./pokemon-logo.svg"
-            alt="Poke logo"
-          />
-        </div>
-        <h1 class="main-bar__title">Hello_</h1>
-        <label for="main-bar__-input">poke-search</label>
-        <input type="text" id="main-bar__poke-input" />
-        <button class="main-bar__button">Catch 'em!</button>
-      </nav>
-    </header>
-
-    <section class="card-section">
-      <ul id="board" class="pokemon-list row list-unstyled">
-        <li class="character col">
-          <div class="card pokemon-card">
-            <div class="card-image__container">
-              <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/7.svg"
-                alt="Poke-picture"
-                class="card-image pokemon-card__image"
-              />
-            </div>
-            <div class="pokemon-card__body">
-              <i class="star">icon_</i>
-              <h2 class="card__image pokemon-card-title">Pokemon-Name_</h2>
-              <div class="pokemon-card__info">
-                <ul class="pokemon-card__list-unstyled">
-                  <li>Number:_${id}</li>
-                  <li>Type:_${type}</li>
-                </ul>
-              </div>
-            </div>
-            <i class="emoji"></i>
+    <main class="main-pokeside">
+      <header>
+        <nav class="main-bar">
+          <div class="main-bar__logo">
+            <img
+              class="main-bar__picture"
+              src="./pokemon-logo.svg"
+              alt="Poke logo"
+            />
           </div>
-        </li>
-      </ul>
-    </section>
+          <h1 class="main-bar__title">Hello_</h1>
+          <label for="main-bar__-input">poke-search</label>
+          <input type="text" id="main-bar__poke-input" />
+          <button class="main-bar__button">Catch 'em!</button>
+        </nav>
+      </header>
 
+      <section class="card-section">
+        <ul id="board" class="pokemon-list row list-unstyled">
+          <li class="character col">
+            <div class="card pokemon-card">
+              <div class="card-image__container">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/7.svg"
+                  alt="Poke-picture"
+                  class="card-image pokemon-card__image"
+                />
+              </div>
+              <div class="pokemon-card__body">
+                <i class="star">icon_</i>
+                <h2 class="card__image pokemon-card-title">Pokemon-Name_</h2>
+                <div class="pokemon-card__info">
+                  <ul class="pokemon-card__list-unstyled">
+                    <li>Number:_${id}</li>
+                    <li>Type:_${type}</li>
+                  </ul>
+                </div>
+              </div>
+              <i class="emoji"></i>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
     <footer class="poke-footer">It was me.</footer>
   </body>
 </html>
