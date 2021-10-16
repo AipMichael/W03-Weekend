@@ -1,11 +1,4 @@
-/* @font-face {
-    font-family: matrix;
-    src: url('matrix-webfont.woff2') format('woff2'),
-         url('matrix-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
 
-} */
 
 *{
   box-sizing: border-box;
@@ -42,7 +35,7 @@ list-style-type: none;
 }
 
 
-.pokemon-card{
+.pokemon__card{
   background-color: white;
   width: 200px;
   display: flex;
@@ -53,18 +46,20 @@ list-style-type: none;
 }
 
 .card-image__container{
-  height: 100px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
   
 }
 
-.pokemon-card__image{
+.pokemon__card--image{
     object-fit: cover;
     object-position: top;
-    height: 100px;
+    height: 120px;
     padding: 10px 0;
     }
 
-.pokemon-card__body{
+.pokemon__card--body{
   background-color: black;
   width: 100%;
   border-bottom-left-radius: 10px;
