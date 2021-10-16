@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
-    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="favicon.ico" rel="stylesheet" />
     <title>PokeApi</title>
   </head>
   <body class="main">
@@ -27,27 +27,27 @@
       </header>
 
       <section class="card-section">
-        <ul id="board" class="pokemon-list row list-unstyled">
-          <li class="character col">
-            <div class="card pokemon-card">
+        <ul id="board" class="pokemon-list list-unstyled">
+          <li class="pokemon">
+            <div class="card pokemon__card">
               <div class="card-image__container">
                 <img
                   src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/7.svg"
                   alt="Poke-picture"
-                  class="card-image pokemon-card__image"
+                  class="card-image pokemon__card--image"
                 />
               </div>
-              <div class="pokemon-card__body">
+              <div class="pokemon__card--body">
                 <i class="star">icon_</i>
-                <h2 class="card__image pokemon-card-title">Pokemon-Name_</h2>
-                <div class="pokemon-card__info">
-                  <ul class="pokemon-card__list-unstyled">
+                <h2 class="card__image pokemon__card--title">Pokemon-Name_</h2>
+                <div class="pokemon__card--info">
+                  <ul class="pokemon__card--list-unstyled">
                     <li>Number:_${id}</li>
                     <li>Type:_${type}</li>
                   </ul>
                 </div>
               </div>
-              <i class="emoji"></i>
+              <i class="pokemon__emoji"></i>
             </div>
           </li>
         </ul>

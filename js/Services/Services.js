@@ -3,7 +3,7 @@ class Services {
   offset = 0;
   url = `https://pokeapi.co/api/v2/pokemon?limit=${this.limit}&offset=${this.offset}`;
 
-  async getSeries() {
+  async getPokeInfo() {
     const response = await fetch(this.url);
     const pokemons = await response.json();
     return pokemons;
