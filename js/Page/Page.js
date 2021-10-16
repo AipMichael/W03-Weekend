@@ -1,13 +1,27 @@
 import Component from "../Component/Component.js";
+import PokeCard from "../PokeCard/PokeCard.js";
+import Service from "../Services/Services.js";
 
 class Page extends Component {
-  element;
-  parentElement;
+  pokePage;
 
-  constructor() {
+  constructor(pokeArray, url) {
     super(".main", ".main-page", "div");
+    this.url = url;
 
     this.generateHtml();
+
+    this.pokeArray = pokeArray;
+
+    const newList = new Component(".card-section", "pokemon-list", "ul");
+
+    (async () => {
+      const pokeService = new Service(url);
+      const showPokemon = await pokeService.getPokeInfo(this.url);
+      console.log(showPokemon);
+      this.pokePage = showPokemon.results;
+      this.pokePage.map((pokemon) => new PokeCard(pokemon));
+    })();
   }
 
   generateHtml() {
@@ -21,7 +35,7 @@ class Page extends Component {
               alt="Poke logo"
             />
           </div>
-          <h1 class="main-bar__title">Hello_</h1>
+          <h1 class="main-bar__title">Hello_adventurer</h1>
           <label for="main-bar__-input">poke-search</label>
           <input type="text" id="main-bar__poke-input" />
           <button class="main-bar__button">Catch 'em!</button>
@@ -31,7 +45,9 @@ class Page extends Component {
       <section class="card-section">
 
       </section>
-    </main>`;
+    </main>
+    <footer class="poke-footer">It was me.</footer>`;
+    this.element.innerHTML = htmlText;
   }
 }
 
