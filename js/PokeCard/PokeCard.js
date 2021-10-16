@@ -10,16 +10,14 @@ class PokeCard extends Component {
   constructor(url) {
     super(".pokemon-list", "pokemon", "li");
     this.url = url;
-    console.log(this.url);
 
     (async () => {
       let pokeService = new Services(this.url);
 
       let showPokemon = await pokeService.getPokeInfo(this.url);
-      console.log(showPokemon);
 
       this.name = showPokemon.name;
-      console.log(this.name);
+
       this.pokeId = showPokemon.id;
       this.imageUrl = showPokemon.sprites.other.dream_world.front_default;
 
@@ -39,16 +37,16 @@ class PokeCard extends Component {
                 />
               </div>
               <div class="pokemon__card--body">
-                <i class="star">icon_</i>
+                <i class="star">fav_</i>
                 <h2 class="card__image pokemon__card--title">-${this.name}-</h2>
                 <div class="pokemon__card--info">
                   <ul class="pokemon__card--list-unstyled">
                     <li class="pokemon__card--list-item">Number:_${this.pokeId}</li>
-                    <li class="pokemon__card--list-item">Type:_none</li>
+                    <li class="pokemon__card--list-item">Type:</li>
                   </ul>
                 </div>
               </div>
-              <i class="pokemon__emoji">estrellita</i>
+              
             </div>`;
 
     this.element.innerHTML = myHtml;

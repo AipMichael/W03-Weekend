@@ -5,13 +5,11 @@ import Service from "../Services/Services.js";
 class Page extends Component {
   pokePage;
 
-  constructor(pokeArray, url) {
+  constructor(url) {
     super(".main", ".main-page", "div");
     this.url = url;
 
     this.generateHtml();
-
-    this.pokeArray = pokeArray;
 
     const newList = new Component(".card-section", "pokemon-list", "ul");
 

@@ -20,4 +20,4 @@ const pokeArray = [
   },
 ];
 
-const pruebaPokemon = new Page(pokeArray, url);
+const pruebaPokemon = new Page(url);
