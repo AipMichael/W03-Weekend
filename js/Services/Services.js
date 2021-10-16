@@ -1,14 +1,17 @@
 class Services {
-  limit = 12;
-  offset = 0;
-  url = `https://pokeapi.co/api/v2/pokemon?limit=${this.limit}&offset=${this.offset}`;
+  url;
+  constructor(url) {
+    /*  this.url = url; */
+  }
 
-  async getPokeInfo() {
-    const response = await fetch(this.url);
+  async getPokeInfo(url) {
+    const response = await fetch(url);
     const pokemons = await response.json();
     return pokemons;
   }
-  /* 
+}
+
+/* 
   async createSerie(serie) {
     const response = await fetch(${this.urlAPI}, {
       method: "POST",
@@ -40,6 +43,5 @@ class Services {
     }
     throw new Error("Can't delete it");
   } */
-}
 
 export default Services;
