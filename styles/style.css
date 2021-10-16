@@ -46,14 +46,16 @@ list-style-type: none;
 }
 
 .card-image__container{
-  height: 100px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
   
 }
 
 .pokemon__card--image{
     object-fit: cover;
     object-position: top;
-    height: 100px;
+    height: 120px;
     padding: 10px 0;
     }
 

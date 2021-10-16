@@ -1,13 +1,13 @@
 import Component from "../Component/Component";
 import List from "../List/List";
 
-class List extends Component {
+class PokeCard extends Component {
   element;
   parentElement;
 
   constructor() {
-    super(".card-section", "pokemon-list list-unstyled", "ul");
+    super(".pokemon-list", "pokemon", "li");
   }
 }
 
-export default List;
+export default PokeCard;
