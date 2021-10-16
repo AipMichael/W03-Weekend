@@ -7,7 +7,6 @@ class Services {
   async getPokeInfo(url) {
     const response = await fetch(url);
     const pokemons = await response.json();
-    console.log(pokemons);
     return pokemons;
   }
 }

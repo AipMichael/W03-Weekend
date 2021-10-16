@@ -1,12 +1,30 @@
 import Component from "../Component/Component.js";
+import Services from "../Services/Services.js";
 
 class PokeCard extends Component {
-  constructor({ name, url, id, type }) {
+  name;
+  imageUrl;
+  pokeId;
+  url;
+
+  constructor(url) {
     super(".pokemon-list", "pokemon", "li");
     this.url = url;
-    this.name = name;
-    this.id = id;
-    this.type = type;
+    console.log(this.url);
+
+    (async () => {
+      let pokeService = new Services(this.url);
+
+      let showPokemon = await pokeService.getPokeInfo(this.url);
+      console.log(showPokemon);
+
+      this.name = showPokemon.name;
+      console.log(this.name);
+      this.pokeId = showPokemon.id;
+      this.imageUrl = showPokemon.sprites.other.dream_world.front_default;
+
+      this.generateHtml();
+    })();
 
     this.generateHtml();
   }
@@ -15,7 +33,7 @@ class PokeCard extends Component {
     const myHtml = `<div class="card pokemon__card">
               <div class="card-image__container">
                 <img
-                  src="${this.url}"
+                  src="${this.imageUrl}"
                   alt="Poke-picture"
                   class="card-image pokemon__card--image"
                 />
@@ -25,8 +43,8 @@ class PokeCard extends Component {
                 <h2 class="card__image pokemon__card--title">-${this.name}-</h2>
                 <div class="pokemon__card--info">
                   <ul class="pokemon__card--list-unstyled">
-                    <li class="pokemon__card--list-item">Number:_${this.id}</li>
-                    <li class="pokemon__card--list-item">Type:_${this.type}</li>
+                    <li class="pokemon__card--list-item">Number:_${this.pokeId}</li>
+                    <li class="pokemon__card--list-item">Type:_none</li>
                   </ul>
                 </div>
               </div>

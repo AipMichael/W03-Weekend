@@ -18,9 +18,10 @@ class Page extends Component {
     (async () => {
       const pokeService = new Service(url);
       const showPokemon = await pokeService.getPokeInfo(this.url);
-      console.log(showPokemon);
+
       this.pokePage = showPokemon.results;
-      this.pokePage.map((pokemon) => new PokeCard(pokemon));
+
+      this.pokePage.map((pokemon) => new PokeCard(pokemon.url));
     })();
   }
 
