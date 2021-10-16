@@ -4,10 +4,13 @@ import Service from "../Services/Services.js";
 
 class Page extends Component {
   pokePage;
+  page = 0;
+  url;
 
   constructor(url) {
     super(".main", ".main-page", "div");
     this.url = url;
+  
 
     this.generateHtml();
 
@@ -48,6 +51,26 @@ class Page extends Component {
     <footer class="poke-footer">It was me.</footer>`;
     this.element.innerHTML = htmlText;
   }
+// no hemos visto esto:
+    getOffset = () => {
+    const offset = this.page * 9;
+    }
+
+      previousPage = () => {
+        if (this.page > 0) {
+        this.page--;
+        this.getPageURL();
+        this.generateHTML(this.pagedURL);
+    }
+  };
+
+    nextPage = () => {
+    this.page++;
+    this.getPageURL();
+    this.generateHTML(this.pagedURL);
+  };
+
+  //aqui acaba lo que no he visto
 }
 
 export default Page;
