@@ -15,7 +15,6 @@ class PokeFaveCard extends Component {
       this.imageUrl = showPokemon.image;
 
       this.generateHtml();
-      
     
   }
 
@@ -54,6 +53,8 @@ class PokeFaveCard extends Component {
       const pokeFavorite= pokePost.postPokeInfo(pokePokemon);
     })
   }
+
+
 
 }
 

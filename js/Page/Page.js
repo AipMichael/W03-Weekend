@@ -9,6 +9,7 @@ class Page extends Component {
   offset = 0;
   url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`;
   myApi = false;
+  theMariosour = false;
   
 
   constructor(url) {
@@ -18,7 +19,7 @@ class Page extends Component {
       this.url = url;
       this.myApi=true;
     } 
-    console.log(this.url);
+    
     this.page= 0;
 
   
@@ -28,11 +29,13 @@ class Page extends Component {
 /*     const pageButtonPrevious = new Button(".page-buttons","page-buttons__previous", "<", this.previousPage) */
     const pageButtonNext = new Button(".page-buttons","page-buttons__next", "catch some more! >>", this.nextPage)
     const newList = new Component(".card-section", "pokemon-list", "ul");
+    const pokemario= new Button(".page-buttons","page-buttons__mariosour", "mariosour", this.mariosour)
+    
 
     const pokePaint = (async () => {
       const pokeService = new Service(this.url);
       const showPokemon = await pokeService.getPokeInfo(this.url);
-      console.log(showPokemon);
+      
 
       if(!this.myApi){
       this.pokePage = showPokemon.results;
@@ -40,8 +43,9 @@ class Page extends Component {
       } else {
         this.pokePage = showPokemon;
       this.pokePage.map((pokemon) => new PokeFaveCard(pokemon));
+      
       }
-      console.log(this.pokePage);
+      
       
     });
     this.pokePaint=pokePaint;
@@ -93,6 +97,20 @@ class Page extends Component {
     this.getOffset();
     this.pokePaint();  
   };
+
+    mariosour(){
+    if (!this.theMariosour){
+    this.theMariosour = true;
+    const array= document.querySelectorAll(".card-image");
+    array.forEach(element => element.src="https://i.imgflip.com/5qsieg.jpg");
+    this.imageUrl="https://i.imgflip.com/5qsieg.jpg";
+    console.log("Hello, it's me! Mario!")
+    } else {
+      location.reload();
+    }
+  }
+
+
 
 // necesita refactorizar para poder aplicarse:
       previousPage = () => {
