@@ -11,6 +11,8 @@ class PokeCard extends Component {
     super(".pokemon-list", "pokemon", "li");
     this.url = url;
 
+    
+
     (async () => {
       let pokeService = new Services(this.url);
 
@@ -22,6 +24,7 @@ class PokeCard extends Component {
       this.imageUrl = showPokemon.sprites.other.dream_world.front_default;
 
       this.generateHtml();
+
     })();
 
     this.generateHtml();
@@ -50,7 +53,27 @@ class PokeCard extends Component {
             </div>`;
 
     this.element.innerHTML = myHtml;
+
+      this.element.addEventListener("click", () => {
+      const pokePokemon={
+        name: this.name,
+        image: this.imageUrl,
+        pokeId: this.pokeId,
+      }
+      console.log(pokePokemon);
+      const pokePost = new Services ("https://poke-aip.herokuapp.com/pokemon");
+      
+      const pokeFavorite= pokePost.postPokeInfo(pokePokemon);
+    })
   }
+/*   catchPokemon() {
+    const myPokeFavorites =
+      "https://poke-aip.herokuapp.com/pokemon/";
+    const pokeFavorite = new Services(myPokeFavorites);
+    console.log(pokeFavorite);
+    pokeFavorite.postPokeInfo({ name: this.name, url: this.url}); //revisar
+    console.log(pokeFavorite);
+  } */
 }
 
 export default PokeCard;

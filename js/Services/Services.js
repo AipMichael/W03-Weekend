@@ -1,7 +1,7 @@
 class Services {
   url;
   constructor(url) {
-    /*  this.url = url; */
+    this.url = url;
   }
 
   async getPokeInfo(url) {
@@ -9,20 +9,21 @@ class Services {
     const pokemons = await response.json();
     return pokemons;
   }
-}
 
-/* 
-  async createSerie(serie) {
-    const response = await fetch(${this.urlAPI}, {
+  async postPokeInfo(pokemon) {
+    const response = await fetch(this.url, {
       method: "POST",
-      body: JSON.stringify(serie),
-      header: {
+      body: JSON.stringify(pokemon),
+      headers: {
         "Content-Type": "application/json",
       },
     });
-    const newSerie = await response.json();
-    return newSerie;
+    const newPokemon = await response.json();
+    return newPokemon;
   }
+}
+
+/* 
 
   async updateSerie(id, serie) {
     fetch(${this.urlAPI}${id}, {
