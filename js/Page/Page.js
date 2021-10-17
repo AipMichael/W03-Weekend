@@ -18,7 +18,7 @@ class Page extends Component {
    
     this.generateHtml();
 /*     const pageButtonPrevious = new Button(".page-buttons","page-buttons__previous", "<", this.previousPage) */
-    const pageButtonNext = new Button(".page-buttons","page-buttons__next", ">", this.nextPage)
+    const pageButtonNext = new Button(".page-buttons","page-buttons__next", "catch some more! >>", this.nextPage)
     const newList = new Component(".card-section", "pokemon-list", "ul");
 
     const pokePaint = (async () => {
