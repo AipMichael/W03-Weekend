@@ -24,7 +24,7 @@ class PokeCard extends Component {
       this.imageUrl = showPokemon.sprites.other.dream_world.front_default;
 
       this.generateHtml();
-
+      
     })();
 
     
@@ -40,12 +40,12 @@ class PokeCard extends Component {
                 />
               </div>
               <div class="pokemon__card--body">
-                <i class="star">fav_</i>
+                <div class="star"></div>
                 <h2 class="card__image pokemon__card--title">-${this.name}-</h2>
                 <div class="pokemon__card--info">
                   <ul class="pokemon__card--list-unstyled">
                     <li class="pokemon__card--list-item">Number:_${this.pokeId}</li>
-                    <li class="pokemon__card--list-item">Type:</li>
+                    
                   </ul>
                 </div>
               </div>
@@ -53,8 +53,7 @@ class PokeCard extends Component {
             </div>`;
 
     this.element.innerHTML = myHtml;
-
-      this.element.addEventListener("click", () => {
+       this.element.querySelector(".star").addEventListener("click", () => {
       const pokePokemon={
         name: this.name,
         image: this.imageUrl,
@@ -66,14 +65,7 @@ class PokeCard extends Component {
       const pokeFavorite= pokePost.postPokeInfo(pokePokemon);
     })
   }
-/*   catchPokemon() {
-    const myPokeFavorites =
-      "https://poke-aip.herokuapp.com/pokemon/";
-    const pokeFavorite = new Services(myPokeFavorites);
-    console.log(pokeFavorite);
-    pokeFavorite.postPokeInfo({ name: this.name, url: this.url}); //revisar
-    console.log(pokeFavorite);
-  } */
+
 }
 
 export default PokeCard;
