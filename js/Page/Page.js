@@ -86,8 +86,6 @@ class Page extends Component {
   };
 
 
-
-  //aqui acaba lo que no he visto
 }
 
 export default Page;
