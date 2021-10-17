@@ -1,28 +1,36 @@
 import Component from "../Component/Component.js";
 import PokeCard from "../PokeCard/PokeCard.js";
 import Service from "../Services/Services.js";
+import Button from "../Button/Button.js";
 
 class Page extends Component {
   pokePage;
+  
 
-  constructor(pokeArray, url) {
+  constructor() {
     super(".main", ".main-page", "div");
-    this.url = url;
-
+    this.offset = 0;
+    this.url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`;
+    this.page= 0;
+    console.log(this.page); 
+  
+    this.getOffset();
+   
     this.generateHtml();
-
-    this.pokeArray = pokeArray;
-
+/*     const pageButtonPrevious = new Button(".page-buttons","page-buttons__previous", "<", this.previousPage) */
+    const pageButtonNext = new Button(".page-buttons","page-buttons__next", "catch some more! >>", this.nextPage)
     const newList = new Component(".card-section", "pokemon-list", "ul");
 
-    (async () => {
-      const pokeService = new Service(url);
+    const pokePaint = (async () => {
+      const pokeService = new Service(this.url);
       const showPokemon = await pokeService.getPokeInfo(this.url);
 
       this.pokePage = showPokemon.results;
 
       this.pokePage.map((pokemon) => new PokeCard(pokemon.url));
-    })();
+    });
+    this.pokePaint=pokePaint;
+    this.pokePaint();
   }
 
   generateHtml() {
@@ -46,10 +54,40 @@ class Page extends Component {
       <section class="card-section">
 
       </section>
+      <section class="page-buttons">
+      
+      </section>
     </main>
     <footer class="poke-footer">It was me.</footer>`;
     this.element.innerHTML = htmlText;
   }
+
+    getOffset = () => {
+    const offset = this.page * 12;
+    this.offset = offset;
+    this.url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`
+    }
+
+    nextPage = () => {
+    this.page++;
+    this.getOffset();
+    this.pokePaint();  
+  };
+
+// necesita refactorizar para poder aplicarse:
+      previousPage = () => {
+        if (this.page > 0) {
+        this.page--;
+        
+        this.getOffset();
+        this.pokePaint();
+   
+    }
+  };
+
+
+
+  //aqui acaba lo que no he visto
 }
 
 export default Page;
