@@ -5,12 +5,18 @@ import Button from "../Button/Button.js";
 
 class Page extends Component {
   pokePage;
+  offset = 0;
+  url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`;
   
 
-  constructor() {
-    super(".main", ".main-page", "div");
-    this.offset = 0;
-    this.url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`;
+  constructor(url) {
+        super(".main", ".main-page", "div");
+  /*   this.offset = 0;
+    this.url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`; */
+    console.log(url);
+    if (typeof url !== "undefined") {
+      this.url = url;
+    } 
     this.page= 0;
     console.log(this.page); 
   
@@ -63,10 +69,12 @@ class Page extends Component {
   }
 
     getOffset = () => {
+      if (this.url.includes("https://pokeapi.co/api")){
     const offset = this.page * 12;
     this.offset = offset;
     this.url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`
     }
+  }
 
     nextPage = () => {
     this.page++;
