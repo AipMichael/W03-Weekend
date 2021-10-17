@@ -56,20 +56,25 @@ class Page extends Component {
     const htmlText = `    <main class="main-pokeside">
       <header>
         <nav class="main-bar">
-          <div class="main-bar__logo">
-          <a href="/index.html">  
-            <img
-              class="main-bar__picture"
-              src="./pokemon-logo.svg"
-              alt="Poke logo"
-            />
-            </a>
+        <div class= "main-bar__top">
+            <div class="main-bar__logo">
+              <a href="/index.html">  
+                <img
+                  class="main-bar__picture"
+                  src="./pokemon-logo.svg"
+                  alt="Poke logo"
+                />
+              </a>
+            </div>
+            <div class="professor-mario"></div>
           </div>
-          <h1 class="main-bar__title">Hello_adventurer</h1>
-          <label for="main-bar__-input">poke-search</label>
-          <input type="text" id="main-bar__poke-input" />
-          <button class="main-bar__button">Catch 'em!</button>
-          <button><a href="/pokefavorite.html">My poke-favorites</a></button>
+          <div class="main-bar__not-logo">
+            <h1 class="main-bar__title">Hello_adventurer</h1>
+            <label for="main-bar__-input">poke-search</label>
+            <input type="text" id="main-bar__poke-input" />
+            <button class="main-bar__button">Catch 'em!</button>
+            <button><a href="/pokefavorite.html">My poke-favorites</a></button>
+          </div>
         </nav>
       </header>
 

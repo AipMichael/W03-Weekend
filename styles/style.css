@@ -11,18 +11,52 @@ body{
 
 }
 
+ul{
+  margin: 0;
+  padding: 0;
+}
+
 .main-bar{
   padding: 10px;
   background-color: red;
   color: white;
+
 }
 
 .main-bar__logo{
   height: 50px;
 }
+.main-bar__not-logo{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.main-bar__top{
+display: flex;
+flex-direction: column;
+  
+}
+.professor-mario{
+  background-image: url("/pokemario-removebg-preview.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height:60px;
+  width:60px;
+  display: inline-block;
+  justify-self: right;
+}
+
+button {
+  height:22px;
+}
+input{
+  height :22px;
+}
 
 .main-bar__picture{
   height: 50px;
+  width: 137px;
+  display: block;
 }
 
 .card-section{
