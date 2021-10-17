@@ -4,20 +4,23 @@ import Service from "../Services/Services.js";
 
 class Page extends Component {
   pokePage;
-  page = 0;
-  url;
-
-  constructor(url) {
-    super(".main", ".main-page", "div");
-    this.url = url;
   
 
+  constructor() {
+    super(".main", ".main-page", "div");
+    this.offset = 0;
+    this.url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`;
+    this.page= 0;
+    console.log(this.page); 
+  
+    this.getOffset();
+    console.log(this.url);
     this.generateHtml();
 
     const newList = new Component(".card-section", "pokemon-list", "ul");
 
     (async () => {
-      const pokeService = new Service(url);
+      const pokeService = new Service(this.url);
       const showPokemon = await pokeService.getPokeInfo(this.url);
 
       this.pokePage = showPokemon.results;
@@ -53,21 +56,23 @@ class Page extends Component {
   }
 // no hemos visto esto:
     getOffset = () => {
-    const offset = this.page * 9;
+    const offset = this.page * 12;
+    this.offset = offset;
+    this.url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`
     }
 
       previousPage = () => {
         if (this.page > 0) {
         this.page--;
-        this.getPageURL();
-        this.generateHTML(this.pagedURL);
+        this.getOffset();
+        this.generateHTML();
     }
   };
 
     nextPage = () => {
     this.page++;
     this.getPageURL();
-    this.generateHTML(this.pagedURL);
+    this.generateHTML();
   };
 
   //aqui acaba lo que no he visto
