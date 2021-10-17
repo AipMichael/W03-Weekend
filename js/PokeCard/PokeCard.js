@@ -27,7 +27,7 @@ class PokeCard extends Component {
 
     })();
 
-    this.generateHtml();
+    
   }
 
   generateHtml() {
