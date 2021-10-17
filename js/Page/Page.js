@@ -2,23 +2,25 @@ import Component from "../Component/Component.js";
 import PokeCard from "../PokeCard/PokeCard.js";
 import Service from "../Services/Services.js";
 import Button from "../Button/Button.js";
+import PokeFaveCard from "../pokefavorite.js/pokeFaveCard.js";
 
 class Page extends Component {
   pokePage;
   offset = 0;
   url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`;
+  myApi = false;
   
 
   constructor(url) {
         super(".main", ".main-page", "div");
-  /*   this.offset = 0;
-    this.url = `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${this.offset}`; */
-    console.log(url);
+
     if (typeof url !== "undefined") {
       this.url = url;
+      this.myApi=true;
     } 
+    console.log(this.url);
     this.page= 0;
-    console.log(this.page); 
+
   
     this.getOffset();
    
@@ -30,10 +32,17 @@ class Page extends Component {
     const pokePaint = (async () => {
       const pokeService = new Service(this.url);
       const showPokemon = await pokeService.getPokeInfo(this.url);
+      console.log(showPokemon);
 
+      if(!this.myApi){
       this.pokePage = showPokemon.results;
-
       this.pokePage.map((pokemon) => new PokeCard(pokemon.url));
+      } else {
+        this.pokePage = showPokemon;
+      this.pokePage.map((pokemon) => new PokeFaveCard(pokemon));
+      }
+      console.log(this.pokePage);
+      
     });
     this.pokePaint=pokePaint;
     this.pokePaint();
