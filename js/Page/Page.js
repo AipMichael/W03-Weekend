@@ -29,7 +29,9 @@ class Page extends Component {
 /*     const pageButtonPrevious = new Button(".page-buttons","page-buttons__previous", "<", this.previousPage) */
     const pageButtonNext = new Button(".page-buttons","page-buttons__next", "catch some more! >>", this.nextPage)
     const newList = new Component(".card-section", "pokemon-list", "ul");
-    const pokemario= new Button(".page-buttons","page-buttons__mariosour", "mariosour", this.mariosour)
+    /* const pokemario= new Button(".page-buttons","page-buttons__mariosour", "mariosour", this.mariosour) */
+
+    document.querySelector(".professor-mario").addEventListener("click", this.mariosour);
     
 
     const pokePaint = (async () => {
@@ -56,20 +58,25 @@ class Page extends Component {
     const htmlText = `    <main class="main-pokeside">
       <header>
         <nav class="main-bar">
-          <div class="main-bar__logo">
-          <a href="/index.html">  
-            <img
-              class="main-bar__picture"
-              src="./pokemon-logo.svg"
-              alt="Poke logo"
-            />
-            </a>
+        <div class= "main-bar__top">
+            <div class="main-bar__logo">
+              <a href="/index.html">  
+                <img
+                  class="main-bar__picture"
+                  src="./pokemon-logo.svg"
+                  alt="Poke logo"
+                />
+              </a>
+            </div>
+            <div class="professor-mario"></div>
           </div>
-          <h1 class="main-bar__title">Hello_adventurer</h1>
-          <label for="main-bar__-input">poke-search</label>
-          <input type="text" id="main-bar__poke-input" />
-          <button class="main-bar__button">Catch 'em!</button>
-          <button><a href="/pokefavorite.html">My poke-favorites</a></button>
+          <div class="main-bar__not-logo">
+            <h1 class="main-bar__title">Hello_adventurer</h1>
+            <label for="main-bar__-input">poke-search</label>
+            <input type="text" id="main-bar__poke-input" />
+            <button class="main-bar__button">Catch 'em!</button>
+            <button><a href="/pokefavorite.html">My poke-favorites</a></button>
+          </div>
         </nav>
       </header>
 
