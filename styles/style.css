@@ -117,7 +117,14 @@ width: 100vw;;
   background-size: contain;
   height: 25px;
   width: 20px;
+  cursor: pointer;
 }
+
+.star:active{
+  position: relative;
+  bottom: 2px;
+}
+
 .pokemon__card--list-unstyled{
   list-style-type: none;
   display: flex;

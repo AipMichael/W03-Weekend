@@ -59,7 +59,7 @@ class PokeCard extends Component {
         image: this.imageUrl,
         pokeId: this.pokeId,
       }
-      console.log(pokePokemon);
+      
       const pokePost = new Services ("https://poke-aip.herokuapp.com/pokemon");
       
       const pokeFavorite= pokePost.postPokeInfo(pokePokemon);
