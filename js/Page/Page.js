@@ -29,7 +29,9 @@ class Page extends Component {
 /*     const pageButtonPrevious = new Button(".page-buttons","page-buttons__previous", "<", this.previousPage) */
     const pageButtonNext = new Button(".page-buttons","page-buttons__next", "catch some more! >>", this.nextPage)
     const newList = new Component(".card-section", "pokemon-list", "ul");
-    const pokemario= new Button(".page-buttons","page-buttons__mariosour", "mariosour", this.mariosour)
+    /* const pokemario= new Button(".page-buttons","page-buttons__mariosour", "mariosour", this.mariosour) */
+
+    document.querySelector(".professor-mario").addEventListener("click", this.mariosour);
     
 
     const pokePaint = (async () => {

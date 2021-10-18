@@ -33,7 +33,7 @@ ul{
 }
 .main-bar__top{
 display: flex;
-flex-direction: column;
+justify-content: space-between;
   
 }
 .professor-mario{
